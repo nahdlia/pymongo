@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from pymongo import ReturnDocument
 from bson.objectid import ObjectId
 
+
 class MongoDBManagement:
     def __init__(self):
         self.client = MongoClient('localhost', 27017)
