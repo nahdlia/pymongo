@@ -12,14 +12,15 @@ class MongoDBManagement:
     
     def insert_one_patient(self):
         self.collection_patient.insert_one({
-            "nama": "Ales Sances",
-            "umur": 20,
-            "wali": "kimakau",
-            "Alamat": "Jl.Kenjeran no.12",
+            "NAMA": input("MASUKKAN NAMA PASIEN: "),
+            "UMUR" :input("MASUKKAN UMUR: "),
+            "WALI": input("MASUKKAN NAMA WALI PASIEN: "),
+            "ALAMAT": input("MASUKKAN ALAMAT: "),
         })
-
+    
+    # def delete_one_patient(self):
+    #     self.collection_patient.delete_one({"NAMA": input("HAPUS PASIEN: ")})
 if __name__ == "__main__":
     mongoDB = MongoDBManagement()
     mongoDB.insert_one_patient()
-
-    
+    # mongoDB.delete_one_patient()
