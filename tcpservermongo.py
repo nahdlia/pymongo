@@ -4,6 +4,20 @@ from pymongo import ReturnDocument
 # from bson.objectid import ObjectId
 import json
 import socket
+import threading
+
+print_lock = threading.Lock()
+
+def threaded(c):
+    while 1:
+        data = c.recv(1024)
+        if not data:
+            print('Bye')
+            print_lock.release()
+            break
+        data = data[::-1]
+        c.send(data)
+    c.close
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((socket.gethostname(), 1234))
